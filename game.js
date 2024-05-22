@@ -5,7 +5,7 @@ class Game {
       this.gameScreen = document.getElementById("game-screen");
       this.gameEndScreen = document.getElementById("game-end");
       
-      this.player = new Player(this.gameScreen, 40, -300, '../assets/Playerright.png');
+      this.player = new Player(this.gameScreen, 40, -300, './assets/Playerright.png');
       this.height = 600;
       this.width = 900;
       

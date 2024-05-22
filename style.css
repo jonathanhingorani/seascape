@@ -55,7 +55,7 @@ h1 {
   align-content: center;
   overflow: hidden;
   position: relative;
-  background-image: url(../assets/background2.png);
+  background-image: url(./assets/background2.png);
   background-size: cover;
   /*animation: slide 5s linear infinite;*/
 }

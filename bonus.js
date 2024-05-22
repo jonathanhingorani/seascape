@@ -10,7 +10,7 @@ class Bonus {
         this.top = this.topArr[this.randomIndex]
 
         this.element = document.createElement('img');
-        this.element.src = '../assets/Bonus.png';
+        this.element.src = './assets/Bonus.png';
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
