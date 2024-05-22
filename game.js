@@ -78,8 +78,27 @@ class Game {
                 this.obstacles.push(new Obstacle(this.gameScreen));
         }})
 
+        
+
         this.hearts.forEach((oneHeart, oneHeartIndex) => {
             oneHeart.move();
+            
+            const heartAcquired = this.player.didCollide(oneHeart)
+            if (heartAcquired) {
+                this.hearts.splice(oneHeartIndex, 1);
+                oneHeart.element.remove();
+                this.hearts.push(new Heart(this.gameScreen));
+                if (this.lives < 10) {
+                    this.lives +=1
+                } else {
+                    this.lives +=0
+                }
+                //this.lives +=1
+                const livesElement = document.getElementById('lives')
+                livesElement.innerText = this.lives 
+
+            }
+
             
             if (oneHeart.left < (0-oneHeart.width)) {
                 this.hearts.splice(oneHeartIndex, 1);
@@ -89,6 +108,18 @@ class Game {
 
         this.bonuses.forEach((oneBonus, oneBonusIndex) => {
             oneBonus.move();
+
+            const bonusAcquired = this.player.didCollide(oneBonus)
+            if (bonusAcquired) {
+                this.bonuses.splice(oneBonusIndex, 1);
+                oneBonus.element.remove();
+                this.score += 50;
+                const scoreElement = document.getElementById('score')
+                scoreElement.innerText = this.score
+                this.bonuses.push(new Bonus(this.gameScreen));
+            }
+
+        
             if (oneBonus.left < (0-oneBonus.width)) {
                 this.bonuses.splice(oneBonusIndex, 1);
                 oneBonus.element.remove();
