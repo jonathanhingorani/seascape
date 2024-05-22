@@ -18,7 +18,7 @@ h1 {
   padding: 80px 0px;
 }
 
-#game-container {
+#audiobutton {
   display: flex;
   width: 100vw;
   padding: 20px 0px;
@@ -47,6 +47,7 @@ h1 {
     width: 80px;
 }
 
+/*
 #game-screen {
   display: none;
   margin-left: auto;
@@ -55,27 +56,56 @@ h1 {
   align-content: center;
   overflow: hidden;
   position: relative;
-  background-image: url(./assets/background2.png);
+  background-image: url(../assets/Background3.png);
   background-size: cover;
-  /*animation: slide 5s linear infinite;*/
-}
-
-/*
-@keyframes slide {
-  0% {
-    background-position: 0 -1000px;
-  }
-  95% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0 50px;
-  }
+  background-repeat: repeat-x; 
+  animation: slide 5s linear infinite;
 }
 */
 
+#game-screen {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  align-content: center;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../assets/Backgroundbrown.png);
+  background-size: cover;
+  background-repeat: repeat-x; 
+  animation: slide 5s linear infinite;
+}
+
+
+
+
+
+@keyframes slide {
+  0% {
+    background-position: 900px 0;
+  }
+  100% {
+    background-position: 0px 0;
+  }
+}
+
+
 #game-end {
   display: none;
+  padding: 80px 0px;
+}
+
+h3 {
+    color: #32aadd;
+    font-family: "Press Start 2P";
+    font-size: 35px;
+    padding-top: 60px;
+    padding-bottom: px;
+  }
+#final-score {
+    font-size: 35px;
+    color: #ECEDED;
 }
 
 /*
@@ -96,16 +126,46 @@ body button {
   font-family: "Press Start 2P";
 }
 
-/*
-.spin {
-  -webkit-animation: spin 0.2s linear;
+
+.pulsate {
+    -webkit-animation: pulsate 0.25s linear;
 }
 
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+@-webkit-keyframes pulsate {
+   /* 0% {-webkit-transform: scale(1, 1); opacity: 1;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.9;}*/
+     
+    0% {-webkit-transform: scale(1, 1); opacity: 1;}
+    25% {-webkit-transform: scale(1.2, 1.2); opacity: 0.5;}
+    50% {-webkit-transform: scale(1, 1); opacity: 1;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.9;}
 }
+
+/*
+.shrink {
+    -webkit-animation: shrink 0.3s linear;
+}
+
+@-webkit-keyframes shrink {
+    0% {-webkit-transform: scale(1, 1); opacity: 1;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(0.5, 0.5); opacity: 0.9;}
+}
+*/
+
+/*
+.fadeout {
+    -webkit-animation: fadeOut 1s linear;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ 
+ @keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+ }
+ */

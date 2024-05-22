@@ -31,7 +31,12 @@ window.onload = function () {
     function startGame() {
         console.log ("start game")
         ourGame.start()
+
     }
+
+    audiobutton.addEventListener("click", () => {
+        this.soundTrack.play()
+    });
     restartButton.addEventListener("click", () => {
      window.location.reload();
     });

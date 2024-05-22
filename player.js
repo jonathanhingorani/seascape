@@ -47,6 +47,19 @@ class Player {
     move(){
         this.left += this.directionX *2
         this.top += this.directionY *2
+        if (this.left <= 0) {
+            this.left = 0
+        }
+        if (this.left >= 900 - this.width) {
+            this.left = 900 - this.width
+        }
+        if (this.top <= 50) {
+            this.top = 50
+        }
+        if (this.top >= 202 - this.height) {
+            this.top = 202 - this.height
+        }
+        if (this.top )
         this.updatePosition()
     }
 
@@ -79,6 +92,30 @@ class Player {
           playerRect.top < obstacleRect.bottom &&
           playerRect.bottom > obstacleRect.top
         ) {
+        /*    this.element.classList.add('pulsate')
+            setTimeout(() => {
+                this.element.classList.remove('pulsate')
+            }, 1000)*/
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+    didCollide(heart) {
+        const playerRect = this.element.getBoundingClientRect();
+        const heartRect = heart.element.getBoundingClientRect();
+    
+        if (
+          playerRect.left < heartRect.right &&
+          playerRect.right > heartRect.left &&
+          playerRect.top < heartRect.bottom &&
+          playerRect.bottom > heartRect.top
+        ) {
+            this.element.classList.add('pulsate')
+            setTimeout(() => {
+                this.element.classList.remove('pulsate')
+            }, 1000)
           return true;
         } else {
           return false;
