@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  padding: 0;
+  text-align: center;
+  color: #32aadd;
+  font-family: "Press Start 2P";
+  background-color: #000088;
+}
+h1 {
+  color: #32aadd;
+  font-family: "Press Start 2P";
+  font-size: 80px;
+  padding-top: 60px;
+}
+
+#game-intro {
+  padding: 80px 0px;
+}
+
+#game-container {
+  display: flex;
+  width: 100vw;
+  padding: 20px 0px;
+  justify-content: center;
+}
+
+#info-container {
+    display: flex;
+    padding: 20px;
+    color: #eceded;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: -25px;
+}
+
+#runningscore-container {
+    display: flex;
+    padding: 20px;
+    padding-top: 465px;
+    color: #eceded;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+}
+
+.audio-img {
+    width: 80px;
+}
+
+#game-screen {
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  align-content: center;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../assets/background2.png);
+  background-size: cover;
+  /*animation: slide 5s linear infinite;*/
+}
+
+/*
+@keyframes slide {
+  0% {
+    background-position: 0 -1000px;
+  }
+  95% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
+*/
+
+#game-end {
+  display: none;
+}
+
+/*
+.game-over-img {
+    width: 200px;
+}
+*/
+
+body button {
+  font-size: 30px;
+  background-color: #32aadd;
+  color: #000088;
+  padding: 20px 20px;
+  border: 0;
+  box-shadow: 0;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  font-family: "Press Start 2P";
+}
+
+/*
+.spin {
+  -webkit-animation: spin 0.2s linear;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

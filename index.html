@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>SEASCAPE</title>
+  </head>
+  <body>
+    <main>
+      <!-- #game-intro is initially shown on the game start screen -->
+      <div id="game-intro">
+        <h1>SEASCAPE</h1>
+        <button id="start-button">Start Game</button>
+        <div id="game-container">
+            <img src="assets/Audio on raster.png" alt="" class="audio-img" />
+        </div>
+      </div>
+
+        <!-- #game-screen is initially hidden using CSS style display: none -->
+    <div id="game-screen">
+        <div id="info-container">
+            <h2>Health: <span id="lives">10</span></h2>
+            <h2>Bubbles: <span id="bubbles">0</span></h2>
+        </div>
+
+        <div id="runningscore-container">
+            <h2>Score: <span id="score">0</span></h2>
+        </div>
+    </div>
+      <!-- #game-end is initially hidden using CSS style display: none -->
+    <div id="game-end">
+        <!--<img src="./assets/Gameover.png" alt="" class="game-over-img" />-->
+        <h1>GAME OVER</h1>
+        <h2>FINAL SCORE</h2>
+        
+        <br />
+        <button id="restart-button">Restart</button>
+    </div>
+    </main>
+    <script type="text/javascript" src="./bonus.js"></script>
+    <script type="text/javascript" src="./heart.js"></script>
+    <script type="text/javascript" src="./obstacle.js"></script>
+    <script type="text/javascript" src="./player.js"></script>
+    <script type="text/javascript" src="./game.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>
