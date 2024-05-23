@@ -5,7 +5,8 @@ class Game {
         this.instructionsScreen = document.getElementById("instructions");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-end");
-
+        this.highScores = document.getElementById("high-scores");
+        this.livesElement = document.getElementById("lives");
         this.player = new Player(this.gameScreen, 40, -300, './assets/Playerright.png');
         this.height = 600;
         this.width = 900;
@@ -23,6 +24,7 @@ class Game {
         this.isGameOver = false;
         this.gameIntervalId = null;
         this.gameLoopFrequency = 1000 / 60;
+        this.counter = 0
     }
 
     // Function to load audio and create buffer
@@ -45,6 +47,16 @@ class Game {
             source.connect(this.audioContext.destination);
             source.start(0);
         }
+    }
+
+        // Function to mute the audio
+    mute() {
+        this.gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+    }
+
+    // Function to unmute the audio
+    unmute() {
+        this.gainNode.gain.setValueAtTime(1, this.audioContext.currentTime); // Adjust this value to control volume
     }
 
     // Add another method for instruction
@@ -81,9 +93,11 @@ class Game {
     gameLoop() {
       //console.log("inside the game loop");
       this.update();
+      this.counter++
       if (this.isGameOver) {
         clearInterval(this.gameIntervalId);
         this.gameOver()
+        this.setHighScores()
       }
     }
     update() {
@@ -102,6 +116,7 @@ class Game {
                     if(this.lives === 0) {
                         this.isGameOver = true
                     }
+                    this.displayHearts();
                     const livesElement = document.getElementById('lives')
                     livesElement.innerText = this.lives
                     this.player.directionX = -5;
@@ -202,6 +217,43 @@ class Game {
         this.gameEndScreen.style.display = "block"
         document.getElementById('final-score').innerText = this.score
     }
+
+    /*displayHearts() {
+        const livesLost = 5 - this.lives;
+        this.livesElement.innerText = "";
+        for (let i = 0; i < this.lives; i++) {
+          const heartElement = document.createElement("img");
+          heartElement.setAttribute("src", "./assets/Filledheart.png");
+          heartElement.setAttribute("class", "hearts");
+          this.livesElement.appendChild(heartElement);
+        }
+        for (let i = 0; i < livesLost; i++) {
+          const heartElement = document.createElement("img");
+          heartElement.setAttribute("src", "./assets/Emptyheart.png");
+          heartElement.setAttribute("class", "hearts");
+          this.livesElement.appendChild(heartElement);
+        }
+      }
+
+
+    /*setHighScores(){
+        const scoresFromStorage = localStorage.getItem("high-scores");
+        if(!scoresFromStorage) {
+            localStorage.setItem("high-scores", this.score);
+        } else {
+            const arrOfScores = scoresFromStorage.split(",");
+            arrOfScores.push(this.score);
+            arrOfScores.sort((a,b) => b - a)
+            const topThreeScores = arrOfScores.slice(0,3);
+            for (let i=0; i < topThreeScores.length; i++) {
+                const liElement = document.createElement("li");
+                liElement.innerText = topThreeScores[i];
+                this.highScores.appendChild(liElement);
+            }
+
+        }
+    }*/
+    
   }
   
 

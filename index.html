@@ -13,9 +13,7 @@
       <div id="game-intro">
         <h1>SEASCAPE</h1>
         <button id="start-button">Start Game</button>
-        <div id="audiobutton">
-            <img src="assets/Audio on raster.png" alt="" class="audio-img" />
-        </div>
+
       </div>
 
       <div id="instructions">
@@ -25,13 +23,27 @@
         <!-- #game-screen is initially hidden using CSS style display: none -->
     <div id="game-screen">
         <div id="info-container">
-            <h2>Health: <span id="lives">5</span></h2>
+            <h2>
+                Health: 
+                <span id="lives">5
+                    <!--<img src="./assets/Filledheart.png" class="hearts"/> -->
+                    <!-- <img src="./assets/Filledheart.png" class="hearts"/> -->
+                   <!--  <img src="./assets/Filledheart.png" class="hearts"/> -->
+                    <!-- <img src="./assets/Filledheart.png" class="hearts"/> -->
+                    <!-- <img src="./assets/Filledheart.png" class="hearts"/> -->
+                </span>
+            </h2>
            <!--  <h2>Bubbles: <span id="bubbles">0</span></h2> -->
         </div>
 
         <div id="runningscore-container">
             <h2>Score: <span id="score">0</span></h2>
         </div>
+
+        <div id="audiobutton">
+            <img src="assets/Audio on raster.png" alt="" class="audio-img" />
+        </div>
+
     </div>
       <!-- #game-end is initially hidden using CSS style display: none -->
     <div id="game-end">
@@ -40,7 +52,10 @@
         <h3>FINAL SCORE</h3>
         <span id="final-score">0</span>
 
-        
+        <!--<h3>HIGH SCORES</h3>-->
+        <!--<ol id="high-scores"></ol>-->
+
+
         <br />
         <button id="restart-button">Restart</button>
     </div>

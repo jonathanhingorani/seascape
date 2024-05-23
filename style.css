@@ -25,6 +25,12 @@ h1 {
   justify-content: center;
 }
 
+.hearts{
+    height: 30px;
+    margin: 0;
+    padding-top: 0px;
+}
+
 #info-container {
     display: flex;
     padding: 20px;

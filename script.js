@@ -55,6 +55,12 @@ window.onload = function () {
     audiobutton.addEventListener("click", () => {
         this.soundTrack.play()
     });
+
+    audiobutton. addEventListener("click", () => {
+        soundTrack.muted = true;
+        this.soundTrack.pause();
+    });
+
     restartButton.addEventListener("click", () => {
      window.location.reload();
     });
