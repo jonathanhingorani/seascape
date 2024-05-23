@@ -71,13 +71,11 @@ h1 {
   align-content: center;
   overflow: hidden;
   position: relative;
-  background-image: url(../assets/Backgroundbrown.png);
+  background-image: url(./assets/Backgroundbrown.png);
   background-size: cover;
   background-repeat: repeat-x; 
   animation: slide 5s linear infinite;
 }
-
-
 
 
 
@@ -116,14 +114,25 @@ h3 {
 
 body button {
   font-size: 30px;
-  background-color: #32aadd;
-  color: #000088;
+  background-color: #000088;
+  color: #32aadd;
   padding: 20px 20px;
-  border: 0;
+  border: 3;
+  border-color: #32aadd;
   box-shadow: 0;
   margin-top: 80px;
   margin-bottom: 80px;
   font-family: "Press Start 2P";
+}
+
+#start-button:hover {
+    background-color: #32aadd; /* change to your desired color */
+    color: #000088; /* change to your desired color */
+}
+
+#restart-button:hover {
+    background-color: #32aadd; /* change to your desired color */
+    color: #000088; /* change to your desired color */
 }
 
 
