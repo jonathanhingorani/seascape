@@ -2,6 +2,7 @@ class Game {
     constructor() {
         this.startScreen = document.getElementById("game-intro");
         // call div for instructions
+        this.instructionsScreen = document.getElementById("instructions");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-end");
 
@@ -47,11 +48,20 @@ class Game {
     }
 
     // Add another method for instruction
+    instructions() {
+        this.instructionsScreen.style.display = "block"
+        this.instructionsScreen.style.height = `${this.height}px`;
+        this.gameScreen.style.width = `${this.width}px`;
+        this.startScreen.style.display = "none";
+        this.gameScreen.style.display = "none";
+
+    }
+
 
     start() {
         // Create AudioContext in response to a user action
         this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
+        this.instructionsScreen.style.display = "none"
         this.gameScreen.style.height = `${this.height}px`;
         this.gameScreen.style.width = `${this.width}px`;
         this.startScreen.style.display = "none";
@@ -65,6 +75,7 @@ class Game {
             this.playSoundTrack();
         }, 1000); // Adjust delay as needed
     }
+
 
 
     gameLoop() {
