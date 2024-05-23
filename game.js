@@ -5,8 +5,8 @@ class Game {
         this.instructionsScreen = document.getElementById("instructions");
         this.gameScreen = document.getElementById("game-screen");
         this.gameEndScreen = document.getElementById("game-end");
-        this.highScores = document.getElementById("high-scores");
-        this.livesElement = document.getElementById("lives");
+        //this.highScores = document.getElementById("high-scores");
+        //this.livesElement = document.getElementById("lives");
         this.player = new Player(this.gameScreen, 40, -300, './assets/Playerright.png');
         this.height = 600;
         this.width = 900;
@@ -24,7 +24,7 @@ class Game {
         this.isGameOver = false;
         this.gameIntervalId = null;
         this.gameLoopFrequency = 1000 / 60;
-        this.counter = 0
+        //this.counter = 0
     }
 
     // Function to load audio and create buffer
@@ -116,7 +116,7 @@ class Game {
                     if(this.lives === 0) {
                         this.isGameOver = true
                     }
-                    this.displayHearts();
+                    //this.displayHearts();
                     const livesElement = document.getElementById('lives')
                     livesElement.innerText = this.lives
                     this.player.directionX = -5;
