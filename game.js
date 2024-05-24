@@ -25,6 +25,7 @@ class Game {
         this.gameIntervalId = null;
         this.gameLoopFrequency = 1000 / 60;
         this.counter = 0
+        this.level = 120
     }
 
     // Function to load audio and create buffer
@@ -94,8 +95,23 @@ class Game {
       //console.log("inside the game loop");
       this.update();
       this.counter++
-      if(this.counter % 50 === 0) {
+      if(this.counter % this.level === 0) {
         this.obstacles.push(new Obstacle(this.gameScreen, this.speed))
+      }
+      if (this.score >= 200){
+        this.level = 80;
+      }
+      if (this.score >= 400){
+        this.level = 70;
+      }
+      if (this.score >= 600){
+        this.level = 60;
+      }
+      if (this.score >= 800){
+        this.level = 50;
+      }
+      if (this.score >= 1000){
+        this.level = 40;
       }
       if (this.isGameOver) {
         clearInterval(this.gameIntervalId);
