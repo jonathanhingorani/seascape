@@ -11,7 +11,7 @@ class Game {
         this.height = 600;
         this.width = 900;
 
-        this.obstacles = [new Obstacle(this.gameScreen)];
+        this.obstacles = [];//[new Obstacle(this.gameScreen)];
 
         this.hearts = [new Heart(this.gameScreen)];
 
@@ -24,7 +24,7 @@ class Game {
         this.isGameOver = false;
         this.gameIntervalId = null;
         this.gameLoopFrequency = 1000 / 60;
-        //this.counter = 0
+        this.counter = 0
     }
 
     // Function to load audio and create buffer
@@ -94,6 +94,9 @@ class Game {
       //console.log("inside the game loop");
       this.update();
       this.counter++
+      if(this.counter % 50 === 0) {
+        this.obstacles.push(new Obstacle(this.gameScreen, this.speed))
+      }
       if (this.isGameOver) {
         clearInterval(this.gameIntervalId);
         this.gameOver()
@@ -111,7 +114,7 @@ class Game {
                 if (thereWasACollisionCollision) {
                     this.obstacles.splice(oneObstacleIndex, 1);
                     oneObstacle.element.remove();
-                    this.obstacles.push(new Obstacle(this.gameScreen));
+                    //this.obstacles.push(new Obstacle(this.gameScreen));
                     this.lives -=1
                     if(this.lives === 0) {
                         this.isGameOver = true
@@ -135,7 +138,7 @@ class Game {
                 this.score += 10;
                 const scoreElement = document.getElementById('score')
                 scoreElement.innerText = this.score
-                this.obstacles.push(new Obstacle(this.gameScreen));
+                //this.obstacles.push(new Obstacle(this.gameScreen));
             }
         })
 
@@ -331,3 +334,7 @@ class Game {
       this.soundTrack.play()
     }
 */
+
+
+
+// UNDO POINT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
