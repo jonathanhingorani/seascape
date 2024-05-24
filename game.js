@@ -28,7 +28,6 @@ class Game {
         this.level = 120
     }
 
-    // Function to load audio and create buffer
     loadAudio(url) {
         fetch(url)
             .then(response => response.arrayBuffer())
@@ -39,7 +38,6 @@ class Game {
             .catch(e => console.error('Error with decoding audio data', e));
     }
 
-    // Function to play audio buffer in loop
     playSoundTrack() {
         if (this.soundTrack) {
             const source = this.audioContext.createBufferSource();
@@ -49,7 +47,7 @@ class Game {
             source.start(0);
         }
     }
-
+/*
         // Function to mute the audio
     mute() {
         this.gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
@@ -59,8 +57,7 @@ class Game {
     unmute() {
         this.gainNode.gain.setValueAtTime(1, this.audioContext.currentTime); // Adjust this value to control volume
     }
-
-    // Add another method for instruction
+*/
     instructions() {
         this.instructionsScreen.style.display = "block"
         this.instructionsScreen.style.height = `${this.height}px`;
@@ -72,7 +69,6 @@ class Game {
 
 
     start() {
-        // Create AudioContext in response to a user action
         this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
         this.instructionsScreen.style.display = "none"
         this.gameScreen.style.height = `${this.height}px`;
@@ -83,16 +79,14 @@ class Game {
             this.gameLoop();
         }, this.gameLoopFrequency);
         this.loadAudio('./assets/Gamesong.wav');
-        // Call playSoundTrack after the audio is loaded
         setTimeout(() => {
             this.playSoundTrack();
-        }, 1000); // Adjust delay as needed
+        }, 1000);
     }
 
 
 
     gameLoop() {
-      //console.log("inside the game loop");
       this.update();
       this.counter++
       if(this.counter % this.level === 0) {
@@ -207,29 +201,7 @@ class Game {
         }})
         
 
-  /*
-        //if there is a collision with the oneObstacle and our car which is our player
-        const thereWasACollision = this.player.didCollide(oneObstacle);
-        if (thereWasACollision) {
-          //first remove the obstacle from the array and from the Dom
-          this.obstacles.splice(oneObstacleIndex, 1);
-          oneObstacle.element.remove();
-          //then add a new red car to the this.obstacles array
-          this.obstacles.push(new Obstacle(this.gameScreen));
-          this.lives -= 1;
-          if (this.lives === 0) {
-            this.isGameOver = true;
-          }
-          const livesElement = document.getElementById("lives");
-          livesElement.innerText = this.lives;
-        }
   
-        }
-      });
-    }
-    gameOver() {
-      this.gameScreen.style.display = "none";
-      this.gameEndScreen.style.display = "block"; */
     } 
     gameOver() {
         this.gameScreen.style.display = "none"
@@ -275,82 +247,3 @@ class Game {
     
   }
   
-
-
-
-  /* OLD CODE BEFORE AUDIO BUFFER
-  
-  class Game {
-    constructor() {
-      this.startScreen = document.getElementById("game-intro");
-      // call div for instructions
-      this.gameScreen = document.getElementById("game-screen");
-      this.gameEndScreen = document.getElementById("game-end");
-      
-      this.player = new Player(this.gameScreen, 40, -300, './assets/Playerright.png');
-      this.height = 600;
-      this.width = 900;
-      
-      this.obstacles = [new Obstacle(this.gameScreen)];
-      
-      this.hearts = [new Heart(this.gameScreen)];
-
-      this.bonuses = [new Bonus(this.gameScreen)];
-
-      //this.soundTrack = new Audio ('./assets/Gamesong.wav')
-     // this.soundTrack.volume = 0.1
-     // this.soundTrack.loop = true;
-
-        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        this.soundTrack = null;
-        this.loadAudio('./assets/Gamesong.wav');
-
-      this.score = 0;
-      this.bubbles = 0;
-      this.lives = 5;
-      this.isGameOver = false;
-      this.gameIntervalId = null;
-      this.gameLoopFrequency = 1000 / 60;
-    }
-  
-    // Function to load audio and create buffer
-    loadAudio(url) {
-        fetch(url)
-            .then(response => response.arrayBuffer())
-            .then(arrayBuffer => this.audioContext.decodeAudioData(arrayBuffer))
-            .then(audioBuffer => {
-                this.soundTrack = audioBuffer;
-            })
-            .catch(e => console.error('Error with decoding audio data', e));
-    }
-
-    // Function to play audio buffer in loop
-    playSoundTrack() {
-        if (this.soundTrack) {
-            const source = this.audioContext.createBufferSource();
-            source.buffer = this.soundTrack;
-            source.loop = true;
-            source.connect(this.audioContext.destination);
-            source.start(0);
-        }
-    }
-
-    
-    //add another method for instruction
-
-
-    start() {
-      this.gameScreen.style.height = `${this.height}px`;
-      this.gameScreen.style.width = `${this.width}px`;
-      this.startScreen.style.display = "none";
-      this.gameScreen.style.display = "block";
-      this.gameIntervalId = setInterval(() => {
-        this.gameLoop();
-      }, this.gameLoopFrequency);    
-      this.soundTrack.play()
-    }
-*/
-
-
-
-// UNDO POINT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,34 +1,11 @@
-/*class Player {
-    constructor(gameScreen, width, height, playerImage) {
-        this.gameScreen = gameScreen;
-        this.left = -500 / 2 - this.width / 2;
-        this.top = -400;
-        this.width = width;
-        this.height = height;
-        this.directionX = 0;
-        this.directionY = 0;
-        this.element = document.createElement('img');
-        this.element.src = playerImage;
-        this.element.style.position = "absolute";
-        this.element.style.height = `${this.height}px`;
-        this.element.style.width = `${this.width}px`;
-        this.gameScreen.appendChild(this.element);
-
-    }
-}
-
-*/
-
-
 class Player {
     constructor(gameScreen, width, height, playerImage) {
         this.gameScreen = gameScreen;
         this.width = width;
         this.height = height;
 
-        // Set initial position within the game screen
-        this.left = ((this.gameScreen.clientWidth - this.width) / 2) + 60; // Center horizontally
-        this.top = this.gameScreen.clientHeight - this.height - 10; // Position near the bottom, with some padding
+        this.left = ((this.gameScreen.clientWidth - this.width) / 2) + 60;
+        this.top = this.gameScreen.clientHeight - this.height - 10;
 
         this.directionX = 0;
         this.directionY = 0;
@@ -63,19 +40,6 @@ class Player {
         this.updatePosition()
     }
 
-    /*move() { 
-        // Update player's position based on direction
-        this.left += this.directionX;
-        this.top += this.directionY;
-
-        // Ensure player stays within game screen boundaries
-        this.left = Math.max(0, Math.min(this.left, this.gameScreen.clientWidth - this.width));
-        this.top = Math.max(0, Math.min(this.top, this.gameScreen.clientHeight - this.height));
-
-        // Update element's position in the DOM
-        this.element.style.left = `${this.left}px`;
-        this.element.style.top = `${this.top}px`;
-    }*/
 
     updatePosition(){
         this.element.style.left = `${this.left}px`;

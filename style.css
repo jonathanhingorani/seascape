@@ -28,7 +28,7 @@ h1 {
 .hearts{
     height: 30px;
     margin: 0;
-    padding-top: 0px;
+    padding-top: 50px;
 }
 
 #info-container {
@@ -64,21 +64,6 @@ h1 {
     width: 900px
 }
 
-/*
-#game-screen {
-  display: none;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-  align-content: center;
-  overflow: hidden;
-  position: relative;
-  background-image: url(../assets/Background3.png);
-  background-size: cover;
-  background-repeat: repeat-x; 
-  animation: slide 5s linear infinite;
-}
-*/
 
 #game-screen {
   display: none;
@@ -142,13 +127,13 @@ body button {
 }
 
 #start-button:hover {
-    background-color: #32aadd; /* change to your desired color */
-    color: #000088; /* change to your desired color */
+    background-color: #32aadd;
+    color: #000088;
 }
 
 #restart-button:hover {
-    background-color: #32aadd; /* change to your desired color */
-    color: #000088; /* change to your desired color */
+    background-color: #32aadd;
+    color: #000088;
 }
 
 
@@ -157,40 +142,8 @@ body button {
 }
 
 @-webkit-keyframes pulsate {
-   /* 0% {-webkit-transform: scale(1, 1); opacity: 1;}
-    50% {opacity: 1.0;}
-    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.9;}*/
-     
     0% {-webkit-transform: scale(1, 1); opacity: 1;}
     25% {-webkit-transform: scale(1.2, 1.2); opacity: 0.5;}
     50% {-webkit-transform: scale(1, 1); opacity: 1;}
     100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.9;}
 }
-
-/*
-.shrink {
-    -webkit-animation: shrink 0.3s linear;
-}
-
-@-webkit-keyframes shrink {
-    0% {-webkit-transform: scale(1, 1); opacity: 1;}
-    50% {opacity: 1.0;}
-    100% {-webkit-transform: scale(0.5, 0.5); opacity: 0.9;}
-}
-*/
-
-/*
-.fadeout {
-    -webkit-animation: fadeOut 1s linear;
-}
-
-@-webkit-keyframes fadeOut {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
- }
- 
- @keyframes fadeOut {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
- }
- */
